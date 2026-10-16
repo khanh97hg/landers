@@ -6,8 +6,8 @@
 - **Test budget:** $50 split across 3 angles (~$16.67 each)
 - **Images:** Higgsfield, model `nano_banana_pro` (realistic photos, about 2 credits each). Set to
   `none` to ship pages with empty image spots you fill yourself.
-- **Legal business name:** `Khanh Vu Media`
-- **Contact email:** `khanh97hg@gmail.com`
+- **Legal business name:** `Wealthy Media`
+- **Contact email:** `kaneharvey1101@gmail.com`
 - **Mailing address:** `Hà Nội, Việt Nam`
 - **Governing law:** `Vietnam`
   (These four fill the Privacy Policy and Terms on every campaign. While they're in [brackets], the

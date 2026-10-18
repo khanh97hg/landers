@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Campaign Dashboard: Survey Club</title>
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Sora,system-ui,sans-serif;background:#070b14;color:#dbe4f0;line-height:1.6;min-height:100vh;overflow-x:hidden}
+.blob{position:fixed;border-radius:50%;filter:blur(140px);z-index:0;pointer-events:none}
+.b1{width:480px;height:480px;background:#2e7d32;opacity:.3;top:-200px;left:-160px}
+.b2{width:420px;height:420px;background:#3b62c4;opacity:.22;top:-160px;right:-140px}
+.wrap{position:relative;z-index:1;max-width:980px;margin:0 auto;padding:40px 20px 70px}
+.top{display:flex;align-items:center;gap:10px;margin-bottom:28px}
+.mark{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#7ee085,#2e7d32);display:flex;align-items:center;justify-content:center;font-weight:800;color:#06210b}
+.wm{font-weight:800;font-size:15px;color:#fff}
+.tag{display:inline-flex;align-items:center;gap:8px;background:rgba(46,125,50,.14);color:#7ee085;border:1px solid rgba(46,125,50,.4);padding:6px 15px;border-radius:30px;font-size:11px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase}
+.dot{width:7px;height:7px;border-radius:50%;background:#7ee085;box-shadow:0 0 10px #7ee085;animation:p 1.8s infinite}
+@keyframes p{50%{opacity:.35}}
+h1{font-size:clamp(32px,6vw,50px);font-weight:800;letter-spacing:-1.4px;line-height:1.08;margin:18px 0 10px;background:linear-gradient(100deg,#fff 25%,#8fa6c4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.sub{color:#7d8fa8;font-size:15px}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 34px}
+.chip{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);padding:7px 13px;border-radius:10px;font-size:12px;color:#a8bad0}
+.chip b{color:#fff}
+h2{font-size:13px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#7d8fa8;margin:0 0 14px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:40px}
+.card{display:block;text-decoration:none;color:inherit;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.1);border-top:3px solid var(--c);border-radius:18px;padding:20px;transition:transform .2s,background .2s,border-color .2s}
+.card:hover{transform:translateY(-4px);background:rgba(255,255,255,.07);border-color:var(--c)}
+.ch{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.badge{width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:var(--c);background:rgba(255,255,255,.06);border:1px solid var(--c)}
+.nm{font-weight:700;color:#fff;flex:1}
+.go{font-size:12px;color:var(--c);font-weight:700}
+.card p{font-size:13.5px;color:#a8bad0;margin-bottom:12px}
+.thumb{display:block;margin:-20px -20px 14px;aspect-ratio:16/9;background:linear-gradient(135deg,rgba(255,255,255,.06),rgba(255,255,255,.01));border-radius:15px 15px 0 0;overflow:hidden}.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.card code{display:block;font-size:11px;color:#6b7f9a;word-break:break-all;background:rgba(0,0,0,.25);padding:8px 10px;border-radius:8px}
+.panel{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.09);border-radius:20px;padding:22px;margin-bottom:40px}
+.tabs{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+.tab{font-family:inherit;font-size:13.5px;font-weight:700;color:#a8bad0;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);padding:9px 18px;border-radius:30px;cursor:pointer}
+.tab.on{color:#070b14;background:var(--c);border-color:var(--c)}
+.pane{display:none}.pane.on{display:block}
+.lp{font-size:12.5px;color:#7d8fa8;margin-bottom:14px}.lp a{color:#7ee085}
+.grp{margin-bottom:20px}
+.grp h4{font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#8fa6c4;margin-bottom:8px}
+.grp ul{list-style:none;display:grid;gap:8px}
+.grp li{display:flex;gap:12px;align-items:flex-start;background:rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:12px 14px}
+.grp .t{flex:1;font-size:14px;color:#dbe4f0}
+.cp{font-family:inherit;flex:0 0 auto;font-size:11.5px;font-weight:700;color:#7ee085;background:rgba(126,224,133,.1);border:1px solid rgba(126,224,133,.35);border-radius:8px;padding:6px 11px;cursor:pointer}
+.cp.done{color:#070b14;background:#7ee085}
+.why{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:10px}
+.sc{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:14px;opacity:.55}
+.sc.on{opacity:1;background:rgba(126,224,133,.07);border-color:rgba(126,224,133,.35)}
+.sh{display:flex;justify-content:space-between;align-items:baseline;gap:6px;margin-bottom:6px}.sh b{color:#fff;font-size:13.5px}
+.dots{font-size:12px;font-weight:700;color:#7ee085}.sc p{font-size:12px;color:#a8bad0}
+.adimgs{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px;margin-bottom:6px}.adimg{background:rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:10px;margin:0;min-width:0}.adimg img{width:100%;border-radius:8px;display:block;background:#0b1220}.adimg figcaption{font-size:11.5px;color:#a8bad0;margin:8px 0 0;line-height:1.4}.adimg figcaption b{color:#fff}.dl{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}.dl a{font-size:11.5px;font-weight:700;color:#7ee085;background:rgba(126,224,133,.1);border:1px solid rgba(126,224,133,.35);border-radius:8px;padding:6px 10px;text-decoration:none}
+.srcl{font-size:12px;color:#6b7f9a;margin-bottom:34px}.srcl a{color:#7ee085}
+@media(max-width:760px){.why{grid-template-columns:1fr 1fr}}
+.notice{background:rgba(59,98,196,.12);border:1px solid rgba(96,165,250,.35);border-radius:14px;padding:14px 16px;font-size:13.5px;color:#c4d2e6;margin-bottom:10px}.notice b{color:#93c5fd}.notice.warn{background:rgba(250,204,21,.07);border-color:rgba(250,204,21,.35)}.notice.warn b{color:#fde68a}.notices{margin:-10px 0 34px}.fmt{display:inline-block;font-size:11px;font-weight:700;color:#c4d2e6;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:3px 10px;margin:0 0 10px}.why{margin-bottom:34px!important}.foot{margin-top:40px;padding-top:18px;border-top:1px solid rgba(255,255,255,.07);text-align:center;font-size:11.5px;color:#4e5f78}
+@media(max-width:760px){.cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="blob b1"></div><div class="blob b2"></div>
+<div class="wrap">
+<div class="top"><div class="mark">C</div><span class="wm">Campaign Agent</span></div>
+<span class="tag"><span class="dot"></span>Testing</span>
+<h1>Survey Club</h1>
+<p class="sub">Survey Club - CP1C (US, CA) {iOS Only}, SOI. Research picked 3 of 5 angles. 3 bridge pages, ad copy ready to paste. Built and deployed with Claude Code.</p>
+<div class="meta"><span class="chip">Launched &middot; <b>Oct 18, 2026</b></span><span class="chip">Vertical &middot; <b>BizOpp (paid surveys)</b></span><span class="chip">EPC &middot; <b>$0.45</b></span><span class="chip">Test budget &middot; <b>$50</b></span><span class="chip">Traffic &middot; <b>Facebook</b></span><span class="chip">Geo &middot; <b>US + CA, iOS only</b></span><span class="chip">Affiliate link &middot; <b>Live</b></span></div>
+<div class="notices">
+<div class="notice warn"><b>iOS only, US + Canada:</b> set every ad set to iOS devices and US + CA locations. Android and other-country clicks won't convert. Run it as a Traffic / Leads / Sales campaign to the bridge page, not App Promotion (the link is a web sign-up).</div>
+<div class="notice"><b>Meta policy (income claims and personal attributes):</b> paid-survey offers are allowed, but no earnings amounts, "make money" promises, cash or payout-screenshot images, and no lines implying the viewer's finances ("Need extra cash?", "If you're struggling..."). Pages and copy here follow that; keep any edits the same way.</div>
+<div class="notice"><b>Compliance baseline (BizOpp):</b> every page says "Results vary and are not typical. We make no income or earnings claims" and that you won't qualify for every survey. No testimonials, ratings or member counts are used (none published by the offer owner).</div>
+<div class="notice"><b>Check the offer page:</b> the tracker domain was blocked from the build environment, so the final offer page wasn't inspected. Open the link on an iPhone before spending, and confirm PayPal and gift-card rewards are still listed (the pages mention both, from public reviews).</div>
+<div class="notice"><b>Publisher name:</b> "The Opinion Desk" is a placeholder brand. Rename it to match your domain with <code>/swap-logo survey-club &lt;name&gt;</code>.</div>
+</div>
+<h2>Why these angles</h2>
+<div class="why">
+<div class="sc on"><div class="sh"><b>Pain Point</b><span class="dots">4/5</span></div><p>Late screen-outs and points you can't value are the #1 survey-app complaint. Naming it honestly builds trust.</p></div>
+<div class="sc on"><div class="sh"><b>Curiosity</b><span class="dots">5/5</span></div><p>"Most products are tested on people's opinions first" is a factual open loop; a quick quiz closes it.</p></div>
+<div class="sc"><div class="sh"><b>Social Proof</b><span class="dots">2/5</span></div><p>Skipped: no reviews or numbers published by the offer owner. Guardrail: no proof, no Social Proof.</p></div>
+<div class="sc"><div class="sh"><b>Fear</b><span class="dots">1/5</span></div><p>Skipped: no real consequence of not joining; fear plus money reads as a scam on Meta.</p></div>
+<div class="sc on"><div class="sh"><b>Direct Benefit</b><span class="dots">4/5</span></div><p>Honest end state with no money claims: free iPhone app, studies in one place, PayPal or gift-card rewards.</p></div>
+</div>
+<h2>Landing pages</h2>
+<div class="cards"><a class="card" href="https://khanh97hg.github.io/landers/survey-club/pain.html" target="_blank" rel="noopener" style="--c:#fb923c">
+<span class="thumb"><img src="https://khanh97hg.github.io/landers/survey-club/img/pain-hero.webp" alt="" onerror="this.style.opacity=0"></span><div class="ch"><span class="badge">A</span><span class="nm">Pain Point Lander</span><span class="go">Open &#8599;</span></div><span class="fmt">Advertorial</span>
+<p>Names the survey-app frustration (the late screen-out, points you can&#x27;t value) and sets honest expectations.</p><code>https://khanh97hg.github.io/landers/survey-club/pain.html</code></a><a class="card" href="https://khanh97hg.github.io/landers/survey-club/curiosity.html" target="_blank" rel="noopener" style="--c:#60a5fa">
+<span class="thumb"><img src="https://khanh97hg.github.io/landers/survey-club/img/curiosity-hero.webp" alt="" onerror="this.style.opacity=0"></span><div class="ch"><span class="badge">B</span><span class="nm">Curiosity Lander</span><span class="go">Open &#8599;</span></div><span class="fmt">Quiz</span>
+<p>Opens a loop: most products are tested on ordinary people&#x27;s opinions first. A 4-question quiz shows which studies fit you.</p><code>https://khanh97hg.github.io/landers/survey-club/curiosity.html</code></a><a class="card" href="https://khanh97hg.github.io/landers/survey-club/benefit.html" target="_blank" rel="noopener" style="--c:#34d399">
+<span class="thumb"><img src="https://khanh97hg.github.io/landers/survey-club/img/benefit-hero.webp" alt="" onerror="this.style.opacity=0"></span><div class="ch"><span class="badge">C</span><span class="nm">Direct Benefit Lander</span><span class="go">Open &#8599;</span></div><span class="fmt">Quiz</span>
+<p>Leads with the end state: a free iPhone app with studies in one place and rewards by PayPal or gift card, for spare minutes.</p><code>https://khanh97hg.github.io/landers/survey-club/benefit.html</code></a></div>
+<h2>Ad copy</h2>
+<div class="panel"><div class="tabs"><button class="tab on" data-t="Pain-Point" type="button" style="--c:#fb923c">Pain Point</button><button class="tab" data-t="Curiosity" type="button" style="--c:#60a5fa">Curiosity</button><button class="tab" data-t="Direct-Benefit" type="button" style="--c:#34d399">Direct Benefit</button></div><div class="pane on" id="p-Pain-Point"><div class="lp">Lands on <a href="https://khanh97hg.github.io/landers/survey-club/pain.html" target="_blank" rel="noopener">pain.html</a></div><div class="grp"><h4>Image ads</h4><div class="adimgs">
+<figure class="adimg"><img src="ads/img/pain-feed-4x5.webp" alt="" loading="lazy"><figcaption><b>Feed 4:5</b><br>Facebook &amp; Instagram feed</figcaption><div class="dl"><a href="ads/img/pain-feed-4x5.webp" download>Download</a></div></figure>
+<figure class="adimg"><img src="ads/img/pain-feed-1x1.webp" alt="" loading="lazy"><figcaption><b>Feed 1:1</b><br>Facebook, Instagram, Audience Network</figcaption><div class="dl"><a href="ads/img/pain-feed-1x1.webp" download>Download</a></div></figure>
+</div></div>
+<div class="grp"><h4>Hooks (under 15 words)</h4><ul><li><span class="t">Twenty questions in, then &quot;you don&#x27;t match.&quot; Sound familiar?</span><button class="cp" type="button">Copy</button></li><li><span class="t">Survey apps feel frustrating for a reason. Here&#x27;s what fixes most of it.</span><button class="cp" type="button">Copy</button></li><li><span class="t">One screen-out shouldn&#x27;t end your whole survey session.</span><button class="cp" type="button">Copy</button></li></ul></div>
+<div class="grp"><h4>PAS body (Pain → Agitate → Solution)</h4><ul><li><span class="t">Survey apps promise &quot;about 5 minutes,&quot; then screen you out twenty questions in. A few points land in your account, you can&#x27;t tell what they&#x27;re worth, and there&#x27;s nothing else waiting, so the session ends. A free iPhone app that lists paid research studies from many sources in one place changes that: a screen-out just means trying the next one, and rewards go out by PayPal or gift card. Free to join. You won&#x27;t qualify for every survey.</span><button class="cp" type="button">Copy</button></li></ul></div>
+<div class="grp"><h4>Meta / Facebook: primary text</h4><ul><li><span class="t">Screened out after twenty questions? An iPhone app with many studies in one list means there&#x27;s always a next survey to try. Free to join.</span><button class="cp" type="button">Copy</button></li><li><span class="t">Most survey frustration isn&#x27;t you. Each study looks for a specific group of people, so screen-outs happen on every app. The difference is what comes next: with many research studies in one list, there&#x27;s another one to try. Rewards by PayPal or gift card. Free on iPhone, no card needed.</span><button class="cp" type="button">Copy</button></li><li><span class="t">You&#x27;ve got twenty minutes on the train, so you open a survey app. It says &quot;about 5 minutes.&quot; Twelve minutes later you&#x27;re still rating laundry detergent scents. Then: &quot;Unfortunately, you do not qualify.&quot; A few points, no idea what they&#x27;re worth, and nothing else to try. There&#x27;s a less frustrating setup: a free iPhone app that lists paid studies from many sources, so a screen-out just means the next one, with rewards by PayPal or gift card. You won&#x27;t qualify for every survey. Nobody does.</span><button class="cp" type="button">Copy</button></li></ul></div>
+<div class="grp"><h4>Meta / Facebook: headlines (≤40 characters)</h4><ul><li><span class="t">Screened Out Again? Try the Next Survey</span><button class="cp" type="button">Copy</button></li><li><span class="t">A Less Frustrating Survey App</span><button class="cp" type="button">Copy</button></li><li><span class="t">Many Surveys in One iPhone App</span><button class="cp" type="button">Copy</button></li></ul></div>
+<div class="grp"><h4>Meta / Facebook: descriptions (≤30 characters)</h4><ul><li><span class="t">Free to join. No card needed.</span><button class="cp" type="button">Copy</button></li><li><span class="t">iPhone app. US &amp; Canada.</span><button class="cp" type="button">Copy</button></li></ul></div></div><div class="pane" id="p-Curiosity"><div class="lp">Lands on <a href="https://khanh97hg.github.io/landers/survey-club/curiosity.html" target="_blank" rel="noopener">curiosity.html</a></div><div class="grp"><h4>Image ads</h4><div class="adimgs">
+<figure class="adimg"><img src="ads/img/curiosity-feed-4x5.webp" alt="" loading="lazy"><figcaption><b>Feed 4:5</b><br>Facebook &amp; Instagram feed</figcaption><div class="dl"><a href="ads/img/curiosity-feed-4x5.webp" download>Download</a></div></figure>
+<figure class="adimg"><img src="ads/img/curiosity-feed-1x1.webp" alt="" loading="lazy"><figcaption><b>Feed 1:1</b><br>Facebook, Instagram, Audience Network</figcaption><div class="dl"><a href="ads/img/curiosity-feed-1x1.webp" download>Download</a></div></figure>
+</div></div>
+<div class="grp"><h4>Hooks (under 15 words)</h4><ul><li><span class="t">Most products on the shelf were tested on people&#x27;s opinions first.</span><button class="cp" type="button">Copy</button></li><li><span class="t">Which paid surveys would you be a fit for? Four quick taps.</span><button class="cp" type="button">Copy</button></li><li><span class="t">Brands pay to hear what ordinary people think. Here&#x27;s how it works.</span><button class="cp" type="button">Copy</button></li></ul></div>
+<div class="grp"><h4>PAS body (Pain → Agitate → Solution)</h4><ul><li><span class="t">Almost everything on the grocery shelf was shaped by what people said in surveys first. Research studies need people from every background, yet most people never see them, or only find apps that pay in points. Answer 4 quick questions about the topics you know, then open a free iPhone app that lists paid studies in one place. You won&#x27;t qualify for every survey.</span><button class="cp" type="button">Copy</button></li></ul></div>
+<div class="grp"><h4>Meta / Facebook: primary text</h4><ul><li><span class="t">Brands test almost every product on people&#x27;s opinions first. Which surveys would you be a fit for? Four quick questions.</span><button class="cp" type="button">Copy</button></li><li><span class="t">Before a new snack, phone plan or car feature launches, someone asked people what they thought. Research studies need opinions from every background, and they pay for them. Answer 4 quick questions to see the kind of studies that fit you, then join a free survey app on your iPhone.</span><button class="cp" type="button">Copy</button></li><li><span class="t">You pick up a new cereal at the store and wonder who decided on that flavor. The answer: people like you, in a survey, months earlier. Brands run research studies before almost every launch, and they need opinions from all kinds of people. Tap through 4 quick questions to see which topics fit you, then open a free iPhone app that lists paid studies in one place. You won&#x27;t qualify for every one.</span><button class="cp" type="button">Copy</button></li></ul></div>
+<div class="grp"><h4>Meta / Facebook: headlines (≤40 characters)</h4><ul><li><span class="t">Which Paid Surveys Fit You?</span><button class="cp" type="button">Copy</button></li><li><span class="t">Brands Want Your Opinion First</span><button class="cp" type="button">Copy</button></li><li><span class="t">4 Questions: Your Survey Topics</span><button class="cp" type="button">Copy</button></li></ul></div>
+<div class="grp"><h4>Meta / Facebook: descriptions (≤30 characters)</h4><ul><li><span class="t">Takes about 30 seconds.</span><button class="cp" type="button">Copy</button></li><li><span class="t">Free iPhone app.</span><button class="cp" type="button">Copy</button></li></ul></div></div><div class="pane" id="p-Direct-Benefit"><div class="lp">Lands on <a href="https://khanh97hg.github.io/landers/survey-club/benefit.html" target="_blank" rel="noopener">benefit.html</a></div><div class="grp"><h4>Image ads</h4><div class="adimgs">
+<figure class="adimg"><img src="ads/img/benefit-feed-4x5.webp" alt="" loading="lazy"><figcaption><b>Feed 4:5</b><br>Facebook &amp; Instagram feed</figcaption><div class="dl"><a href="ads/img/benefit-feed-4x5.webp" download>Download</a></div></figure>
+<figure class="adimg"><img src="ads/img/benefit-feed-1x1.webp" alt="" loading="lazy"><figcaption><b>Feed 1:1</b><br>Facebook, Instagram, Audience Network</figcaption><div class="dl"><a href="ads/img/benefit-feed-1x1.webp" download>Download</a></div></figure>
+</div></div>
+<div class="grp"><h4>Hooks (under 15 words)</h4><ul><li><span class="t">Turn your coffee break into a few paid surveys.</span><button class="cp" type="button">Copy</button></li><li><span class="t">Paid surveys on your iPhone, rewards by PayPal or gift card.</span><button class="cp" type="button">Copy</button></li><li><span class="t">Waiting in line? Your opinion could count for something.</span><button class="cp" type="button">Copy</button></li></ul></div>
+<div class="grp"><h4>PAS body (Pain → Agitate → Solution)</h4><ul><li><span class="t">Spare minutes on your phone usually go to scrolling. Reward apps that promise more often turn out to be ad walls or game installs. A free iPhone app that lists paid research studies in one place lets those minutes count, with rewards by PayPal or gift card once you reach the app&#x27;s minimum. Free to join, no card needed. You won&#x27;t qualify for every survey.</span><button class="cp" type="button">Copy</button></li></ul></div>
+<div class="grp"><h4>Meta / Facebook: primary text</h4><ul><li><span class="t">Paid surveys on your iPhone, with rewards by PayPal or gift card. Free to join, no card needed.</span><button class="cp" type="button">Copy</button></li><li><span class="t">Coffee break, bus ride, the couch at night: a free iPhone app lists paid research studies in one place, so a few spare minutes can count for something. Pick a survey, share your opinion, and cash out by PayPal or gift card once you reach the minimum. You won&#x27;t qualify for every survey.</span><button class="cp" type="button">Copy</button></li><li><span class="t">You&#x27;re waiting for your coffee and reach for your phone, like always. This time, instead of scrolling, you open a survey app and answer a few questions about a new snack brand. Later, on the couch, you do another. Over time those minutes add up to rewards you can send to PayPal or turn into a gift card. It&#x27;s free on iPhone, and you won&#x27;t qualify for every survey, but there&#x27;s always another to try.</span><button class="cp" type="button">Copy</button></li></ul></div>
+<div class="grp"><h4>Meta / Facebook: headlines (≤40 characters)</h4><ul><li><span class="t">Paid Surveys for Your Spare Minutes</span><button class="cp" type="button">Copy</button></li><li><span class="t">Surveys on iPhone. PayPal Rewards.</span><button class="cp" type="button">Copy</button></li><li><span class="t">Make Waiting Time Count</span><button class="cp" type="button">Copy</button></li></ul></div>
+<div class="grp"><h4>Meta / Facebook: descriptions (≤30 characters)</h4><ul><li><span class="t">Free to join. No card needed.</span><button class="cp" type="button">Copy</button></li><li><span class="t">PayPal or gift card rewards.</span><button class="cp" type="button">Copy</button></li></ul></div></div></div>
+<p class="foot">Generated by the Campaign Agent &middot; Claude Code</p>
+</div>
+<script>
+document.querySelectorAll('.tab').forEach(function(t){t.addEventListener('click',function(){
+document.querySelectorAll('.tab,.pane').forEach(function(e){e.classList.remove('on')});
+t.classList.add('on');document.getElementById('p-'+t.dataset.t).classList.add('on');})});
+document.querySelectorAll('.cp').forEach(function(b){b.addEventListener('click',function(){
+var txt=b.previousElementSibling.textContent;
+var done=function(){b.textContent='Copied';b.classList.add('done');setTimeout(function(){b.textContent='Copy';b.classList.remove('done')},1400)};
+if(navigator.clipboard){navigator.clipboard.writeText(txt).then(done,function(){})}})});
+</script>
+</body>
+</html>

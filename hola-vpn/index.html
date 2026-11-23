@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Campaign Dashboard: Hola VPN</title>
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Sora,system-ui,sans-serif;background:#070b14;color:#dbe4f0;line-height:1.6;min-height:100vh;overflow-x:hidden}
+.blob{position:fixed;border-radius:50%;filter:blur(140px);z-index:0;pointer-events:none}
+.b1{width:480px;height:480px;background:#2e7d32;opacity:.3;top:-200px;left:-160px}
+.b2{width:420px;height:420px;background:#3b62c4;opacity:.22;top:-160px;right:-140px}
+.wrap{position:relative;z-index:1;max-width:980px;margin:0 auto;padding:40px 20px 70px}
+.top{display:flex;align-items:center;gap:10px;margin-bottom:28px}
+.mark{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#7ee085,#2e7d32);display:flex;align-items:center;justify-content:center;font-weight:800;color:#06210b}
+.wm{font-weight:800;font-size:15px;color:#fff}
+.tag{display:inline-flex;align-items:center;gap:8px;background:rgba(46,125,50,.14);color:#7ee085;border:1px solid rgba(46,125,50,.4);padding:6px 15px;border-radius:30px;font-size:11px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase}
+.dot{width:7px;height:7px;border-radius:50%;background:#7ee085;box-shadow:0 0 10px #7ee085;animation:p 1.8s infinite}
+@keyframes p{50%{opacity:.35}}
+h1{font-size:clamp(32px,6vw,50px);font-weight:800;letter-spacing:-1.4px;line-height:1.08;margin:18px 0 10px;background:linear-gradient(100deg,#fff 25%,#8fa6c4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.sub{color:#7d8fa8;font-size:15px}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 34px}
+.chip{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);padding:7px 13px;border-radius:10px;font-size:12px;color:#a8bad0}
+.chip b{color:#fff}
+h2{font-size:13px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#7d8fa8;margin:0 0 14px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:40px}
+.card{display:block;text-decoration:none;color:inherit;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.1);border-top:3px solid var(--c);border-radius:18px;padding:20px;transition:transform .2s,background .2s,border-color .2s}
+.card:hover{transform:translateY(-4px);background:rgba(255,255,255,.07);border-color:var(--c)}
+.ch{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.badge{width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:var(--c);background:rgba(255,255,255,.06);border:1px solid var(--c)}
+.nm{font-weight:700;color:#fff;flex:1}
+.go{font-size:12px;color:var(--c);font-weight:700}
+.card p{font-size:13.5px;color:#a8bad0;margin-bottom:12px}
+.thumb{display:block;margin:-20px -20px 14px;aspect-ratio:16/9;background:linear-gradient(135deg,rgba(255,255,255,.06),rgba(255,255,255,.01));border-radius:15px 15px 0 0;overflow:hidden}.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.card code{display:block;font-size:11px;color:#6b7f9a;word-break:break-all;background:rgba(0,0,0,.25);padding:8px 10px;border-radius:8px}
+.panel{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.09);border-radius:20px;padding:22px;margin-bottom:40px}
+.tabs{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+.tab{font-family:inherit;font-size:13.5px;font-weight:700;color:#a8bad0;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);padding:9px 18px;border-radius:30px;cursor:pointer}
+.tab.on{color:#070b14;background:var(--c);border-color:var(--c)}
+.pane{display:none}.pane.on{display:block}
+.lp{font-size:12.5px;color:#7d8fa8;margin-bottom:14px}.lp a{color:#7ee085}
+.grp{margin-bottom:20px}
+.grp h4{font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#8fa6c4;margin-bottom:8px}
+.grp ul{list-style:none;display:grid;gap:8px}
+.grp li{display:flex;gap:12px;align-items:flex-start;background:rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:12px 14px}
+.grp .t{flex:1;font-size:14px;color:#dbe4f0}
+.cp{font-family:inherit;flex:0 0 auto;font-size:11.5px;font-weight:700;color:#7ee085;background:rgba(126,224,133,.1);border:1px solid rgba(126,224,133,.35);border-radius:8px;padding:6px 11px;cursor:pointer}
+.cp.done{color:#070b14;background:#7ee085}
+.why{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:10px}
+.sc{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:14px;opacity:.55}
+.sc.on{opacity:1;background:rgba(126,224,133,.07);border-color:rgba(126,224,133,.35)}
+.sh{display:flex;justify-content:space-between;align-items:baseline;gap:6px;margin-bottom:6px}.sh b{color:#fff;font-size:13.5px}
+.dots{font-size:12px;font-weight:700;color:#7ee085}.sc p{font-size:12px;color:#a8bad0}
+.adimgs{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px;margin-bottom:6px}.adimg{background:rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:10px;margin:0;min-width:0}.adimg img{width:100%;border-radius:8px;display:block;background:#0b1220}.adimg figcaption{font-size:11.5px;color:#a8bad0;margin:8px 0 0;line-height:1.4}.adimg figcaption b{color:#fff}.dl{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}.dl a{font-size:11.5px;font-weight:700;color:#7ee085;background:rgba(126,224,133,.1);border:1px solid rgba(126,224,133,.35);border-radius:8px;padding:6px 10px;text-decoration:none}
+.srcl{font-size:12px;color:#6b7f9a;margin-bottom:34px}.srcl a{color:#7ee085}
+@media(max-width:760px){.why{grid-template-columns:1fr 1fr}}
+.notice{background:rgba(59,98,196,.12);border:1px solid rgba(96,165,250,.35);border-radius:14px;padding:14px 16px;font-size:13.5px;color:#c4d2e6;margin-bottom:10px}.notice b{color:#93c5fd}.notice.warn{background:rgba(250,204,21,.07);border-color:rgba(250,204,21,.35)}.notice.warn b{color:#fde68a}.notices{margin:-10px 0 34px}.fmt{display:inline-block;font-size:11px;font-weight:700;color:#c4d2e6;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:3px 10px;margin:0 0 10px}.why{margin-bottom:34px!important}.foot{margin-top:40px;padding-top:18px;border-top:1px solid rgba(255,255,255,.07);text-align:center;font-size:11.5px;color:#4e5f78}
+@media(max-width:760px){.cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="blob b1"></div><div class="blob b2"></div>
+<div class="wrap">
+<div class="top"><div class="mark">C</div><span class="wm">Campaign Agent</span></div>
+<span class="tag"><span class="dot"></span>Testing</span>
+<h1>Hola VPN</h1>
+<p class="sub">VPN Service, CPI (US), desktop only. Research picked 3 of 5 angles: 3 advertorial bridge pages, native ad copy and image ads ready to upload.</p>
+<div class="meta"><span class="chip">Launched &middot; <b>Nov 23, 2026</b></span><span class="chip">Vertical &middot; <b>Other (VPN software)</b></span><span class="chip">EPC &middot; <b>$3 per install (CPI)</b></span><span class="chip">Test budget &middot; <b>$50</b></span><span class="chip">Traffic &middot; <b>Native banner &middot; US desktop</b></span><span class="chip">Affiliate link &middot; <b>Live</b></span></div>
+<div class="notices">
+<div class="notice warn"><b>Desktop only:</b> the offer pays only for installs on Windows or Mac computers in the US. Target <b>desktop devices, US only</b> in every campaign; mobile and tablet clicks won't convert.</div>
+<div class="notice warn"><b>Affiliate link not checked:</b> the tracker domain was blocked from the build environment, so the offer page couldn't be opened. Click a CTA on a desktop and confirm it lands on the app's download page before you spend.</div>
+<div class="notice"><b>Native policy (VPN / software):</b> allowed, with limits. No unexpected downloads (Taboola Prohibited Campaign Practices), no fake system or security alerts, and a clear advertising label. The pages never start a download, every CTA note says it opens the app's download page, and each page is labelled "Advertisement &middot; Advertorial".</div>
+<div class="notice"><b>Claims baseline:</b> independent reviews say the free version runs on a peer-to-peer community network with little encryption, so the pages and ads make <b>no security, encryption or anonymity claims</b> and name no streaming services. Keep any new copy to "choose your location / reach region-limited pages".</div>
+<div class="notice"><b>Publisher name:</b> "The Desktop Brief" on all 3 pages, the logo and the legal pages. Rename it to match your domain with <code>/swap-logo hola-vpn &lt;name&gt;</code>.</div>
+</div>
+<h2>Why these angles</h2>
+<div class="why">
+<div class="sc on"><div class="sh"><b>Pain Point</b><span class="dots">5/5</span></div><p>"Not available in your region" is a real, common, annoying moment, and the fix answers it directly.</p></div>
+<div class="sc on"><div class="sh"><b>Curiosity</b><span class="dots">4/5</span></div><p>"The web you see depends on where it thinks you are" is a factual open loop native readers click to close.</p></div>
+<div class="sc"><div class="sh"><b>Social Proof</b><span class="dots">2/5</span></div><p>Skipped: no numbers or reviews from the offer owner could be verified. No proof, no Social Proof.</p></div>
+<div class="sc"><div class="sh"><b>Fear</b><span class="dots">1/5</span></div><p>Skipped: VPN fear needs security claims this free P2P product can't back, and reads as a fake alert.</p></div>
+<div class="sc on"><div class="sh"><b>Direct Benefit</b><span class="dots">4/5</span></div><p>Simple end result: free desktop app, pick a country, the page loads.</p></div>
+</div>
+<h2>Landing pages</h2>
+<div class="cards">
+<a class="card" href="https://khanh97hg.github.io/landers/hola-vpn/pain.html" target="_blank" rel="noopener" style="--c:#fb923c">
+<span class="thumb"><img src="https://khanh97hg.github.io/landers/hola-vpn/img/pain-hero.webp" alt="" onerror="this.style.opacity=0"></span><div class="ch"><span class="badge">A</span><span class="nm">Pain Point Lander</span><span class="go">Open &#8599;</span></div><span class="fmt">Advertorial</span>
+<p>Names the frustration: a page says &quot;not available in your region&quot;, and the fix is picking your location.</p><code>https://khanh97hg.github.io/landers/hola-vpn/pain.html</code></a>
+<a class="card" href="https://khanh97hg.github.io/landers/hola-vpn/curiosity.html" target="_blank" rel="noopener" style="--c:#a78bfa">
+<span class="thumb"><img src="https://khanh97hg.github.io/landers/hola-vpn/img/curiosity-hero.webp" alt="" onerror="this.style.opacity=0"></span><div class="ch"><span class="badge">B</span><span class="nm">Curiosity Lander</span><span class="go">Open &#8599;</span></div><span class="fmt">Advertorial</span>
+<p>Opens a loop: the web you see depends on the country it thinks you are in.</p><code>https://khanh97hg.github.io/landers/hola-vpn/curiosity.html</code></a>
+<a class="card" href="https://khanh97hg.github.io/landers/hola-vpn/benefit.html" target="_blank" rel="noopener" style="--c:#22d3ee">
+<span class="thumb"><img src="https://khanh97hg.github.io/landers/hola-vpn/img/benefit-hero.webp" alt="" onerror="this.style.opacity=0"></span><div class="ch"><span class="badge">C</span><span class="nm">Direct Benefit Lander</span><span class="go">Open &#8599;</span></div><span class="fmt">Advertorial</span>
+<p>Leads with the result: pick a country, click once, and the page loads. Free desktop app.</p><code>https://khanh97hg.github.io/landers/hola-vpn/benefit.html</code></a>
+</div>
+<h2>Ad copy</h2>
+<div class="panel"><div class="tabs">
+<button class="tab on" data-t="pain" type="button" style="--c:#fb923c">Pain Point</button>
+<button class="tab" data-t="curiosity" type="button" style="--c:#a78bfa">Curiosity</button>
+<button class="tab" data-t="benefit" type="button" style="--c:#22d3ee">Direct Benefit</button>
+</div>
+<div class="pane on" id="p-pain"><div class="lp">Lands on <a href="https://khanh97hg.github.io/landers/hola-vpn/pain.html" target="_blank" rel="noopener">pain.html</a></div>
+<div class="grp"><h4>Image ads</h4><div class="adimgs">
+<figure class="adimg"><img src="ads/img/pain-native-16x9.webp" alt="" loading="lazy"><figcaption><b>Native 16:9</b><br>Native networks (Taboola, Outbrain, Adsterra), no text</figcaption>
+<div class="dl"><a href="ads/img/pain-native-16x9.webp" download>Download</a></div></figure>
+</div></div>
+
+<div class="grp"><h4>Hooks (under 15 words)</h4><ul><li><span class="t">“Not available in your region”? Here&#x27;s why sites keep saying no.</span><button class="cp" type="button">Copy</button></li><li><span class="t">The page isn&#x27;t broken. It&#x27;s reading where you are.</span><button class="cp" type="button">Copy</button></li><li><span class="t">Tired of sites that won&#x27;t load when you travel? There&#x27;s a simple fix.</span><button class="cp" type="button">Copy</button></li></ul></div>
+
+<div class="grp"><h4>PAS body (Pain → Agitate → Solution)</h4><ul><li><span class="t">You click a link and get a gray box: not available in your region. It happens at home with links from abroad, and it happens when you travel and your usual sites stop working. You end up on pop-up-filled proxy sites, or you just give up. A free desktop app lets you pick your location from a list, so the page sees that country instead. Windows and Mac.</span><button class="cp" type="button">Copy</button></li></ul></div>
+
+<div class="grp"><h4>Native: headlines (≤60 characters)</h4><ul><li><span class="t">Why Websites Say “Not Available in Your Region”</span><button class="cp" type="button">Copy</button></li><li><span class="t">Page Won&#x27;t Load Abroad? Here&#x27;s the Simple Fix</span><button class="cp" type="button">Copy</button></li><li><span class="t">The Real Reason Some Sites Block You (It&#x27;s Not You)</span><button class="cp" type="button">Copy</button></li><li><span class="t">Tired of Region Blocks? Try This Free Desktop App</span><button class="cp" type="button">Copy</button></li><li><span class="t">Traveling Soon? Your Usual Sites May Not Work. Do This</span><button class="cp" type="button">Copy</button></li></ul></div>
+
+</div>
+<div class="pane" id="p-curiosity"><div class="lp">Lands on <a href="https://khanh97hg.github.io/landers/hola-vpn/curiosity.html" target="_blank" rel="noopener">curiosity.html</a></div>
+<div class="grp"><h4>Image ads</h4><div class="adimgs">
+<figure class="adimg"><img src="ads/img/curiosity-native-16x9.webp" alt="" loading="lazy"><figcaption><b>Native 16:9</b><br>Native networks (Taboola, Outbrain, Adsterra), no text</figcaption>
+<div class="dl"><a href="ads/img/curiosity-native-16x9.webp" download>Download</a></div></figure>
+</div></div>
+
+<div class="grp"><h4>Hooks (under 15 words)</h4><ul><li><span class="t">The website you see depends on where it thinks you are.</span><button class="cp" type="button">Copy</button></li><li><span class="t">Same web address, different country, different page. Here&#x27;s why.</span><button class="cp" type="button">Copy</button></li><li><span class="t">Most people never notice this about the websites they use.</span><button class="cp" type="button">Copy</button></li></ul></div>
+
+<div class="grp"><h4>PAS body (Pain → Agitate → Solution)</h4><ul><li><span class="t">The same web address can show different content, or nothing at all, depending on the country your connection seems to come from. Most people never notice, so they assume a page was taken down when it&#x27;s still there. A free desktop app lets you choose the country yourself and see a site the way it appears there. Windows and Mac.</span><button class="cp" type="button">Copy</button></li></ul></div>
+
+<div class="grp"><h4>Native: headlines (≤60 characters)</h4><ul><li><span class="t">The Web You See Depends on Where It Thinks You Are</span><button class="cp" type="button">Copy</button></li><li><span class="t">Same Website, Different Country, Different Page. Why?</span><button class="cp" type="button">Copy</button></li><li><span class="t">What Most People Never Notice About the Websites They Use</span><button class="cp" type="button">Copy</button></li><li><span class="t">How to See Another Country&#x27;s Version of a Website</span><button class="cp" type="button">Copy</button></li><li><span class="t">There Isn&#x27;t One Internet. Here&#x27;s What That Means for You</span><button class="cp" type="button">Copy</button></li></ul></div>
+
+</div>
+<div class="pane" id="p-benefit"><div class="lp">Lands on <a href="https://khanh97hg.github.io/landers/hola-vpn/benefit.html" target="_blank" rel="noopener">benefit.html</a></div>
+<div class="grp"><h4>Image ads</h4><div class="adimgs">
+<figure class="adimg"><img src="ads/img/benefit-native-16x9.webp" alt="" loading="lazy"><figcaption><b>Native 16:9</b><br>Native networks (Taboola, Outbrain, Adsterra), no text</figcaption>
+<div class="dl"><a href="ads/img/benefit-native-16x9.webp" download>Download</a></div></figure>
+</div></div>
+
+<div class="grp"><h4>Hooks (under 15 words)</h4><ul><li><span class="t">Pick a country, click once, and the page loads.</span><button class="cp" type="button">Copy</button></li><li><span class="t">A free desktop app that lets you choose your location.</span><button class="cp" type="button">Copy</button></li><li><span class="t">Open region-limited pages from your own computer.</span><button class="cp" type="button">Copy</button></li></ul></div>
+
+<div class="grp"><h4>PAS body (Pain → Agitate → Solution)</h4><ul><li><span class="t">Region-limited pages, travel, links from family abroad: a lot of the web depends on where you appear to be. Proxy sites are slow and full of pop-ups, and most VPN setups are more than you wanted. This desktop app keeps it to one list of countries: pick one, and switch it off when you&#x27;re done. There&#x27;s a free version for Windows and Mac.</span><button class="cp" type="button">Copy</button></li></ul></div>
+
+<div class="grp"><h4>Native: headlines (≤60 characters)</h4><ul><li><span class="t">Pick a Country, Click Once: This Free App Does the Rest</span><button class="cp" type="button">Copy</button></li><li><span class="t">The Free Desktop App That Lets You Choose Your Location</span><button class="cp" type="button">Copy</button></li><li><span class="t">Open Region-Limited Pages From Your Own Computer</span><button class="cp" type="button">Copy</button></li><li><span class="t">A Simple Way to Browse From Another Country (Free)</span><button class="cp" type="button">Copy</button></li><li><span class="t">One Click to Change Your Location on Windows or Mac</span><button class="cp" type="button">Copy</button></li></ul></div>
+
+</div>
+</div>
+<p class="foot">Generated by the Campaign Agent &middot; Claude Code</p>
+</div>
+<script>
+document.querySelectorAll('.tab').forEach(function(t){t.addEventListener('click',function(){
+document.querySelectorAll('.tab,.pane').forEach(function(e){e.classList.remove('on')});
+t.classList.add('on');document.getElementById('p-'+t.dataset.t).classList.add('on');})});
+document.querySelectorAll('.cp').forEach(function(b){b.addEventListener('click',function(){
+var txt=b.previousElementSibling.textContent;
+var done=function(){b.textContent='Copied';b.classList.add('done');setTimeout(function(){b.textContent='Copy';b.classList.remove('done')},1400)};
+if(navigator.clipboard){navigator.clipboard.writeText(txt).then(done,function(){})}})});
+</script>
+</body>
+</html>

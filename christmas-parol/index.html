@@ -72,6 +72,7 @@ h2{font-size:13px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;
 <div class="notice warn"><b>Same BeMob campaign as New Year Click Box:</b> the link you gave (<code>6665c149-...</code>) is the same BeMob campaign used by <code>new-year-click-box</code>. Make sure it now routes to the parol offer, or create a separate BeMob campaign for this offer and swap it in with <code>/swap-link christmas-parol &lt;link&gt;</code>, so the two tests don't mix.</div>
 <div class="notice warn"><b>Use the macro URL in Adsterra:</b> Adsterra fills <code>##SUB_ID_SHORT(action)##</code> and the other macros only in the ad's own target URL. Set each ad's URL to the lander <b>plus the macros</b> (copy it from "Adsterra ad target URL" in each tab). The pages pass subid, placement, campaign, banner, country, device, browser, OS, language and user agent on to BeMob. The CTAs use the clean BeMob link with <code>?sub=&lt;angle&gt;</code>.</div>
 <div class="notice warn"><b>Seasonal:</b> the parol theme peaks from now through Simbang Gabi (Dec 16–24) and Noche Buena (Dec 24) and goes stale after Christmas. Launch the test now and pause it by early January.</div>
+<div class="notice"><b>Creatives:</b> 7 images at 320×240 JPG (4:3, under 350 KB), titles ≤64 characters, per Adsterra Native Banner specs. Start with 4: curiosity-a, benefit-a, pain-b and the no-text illustration control. Download all as a zip: <a href="ads/native-320x240.zip" style="color:#93c5fd">native-320x240.zip</a>.</div>
 <div class="notice"><b>Adsterra / sweepstakes rules:</b> giveaway sweepstakes are a supported Adsterra vertical. Pages and ads avoid "you won", fake alerts, named or guaranteed prizes, peso amounts, countdowns, "ayuda" wording and any government, telecom, bank or store impersonation (a known Christmas scam pattern in PH). Every page states "chance to win, no guaranteed prize, a real sweepstakes never asks you to pay". Also check the offer's own traffic rules before launch.</div>
 <div class="notice"><b>Publisher name:</b> "Noche Buena Notes" on all 3 pages, the logo and the legal pages. Rename it to match your domain with <code>/swap-logo christmas-parol &lt;name&gt;</code>.</div>
 </div>
@@ -102,9 +103,11 @@ h2{font-size:13px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;
 <button class="tab" data-t="benefit" type="button" style="--c:#4ade80">Direct Benefit</button>
 </div>
 <div class="pane on" id="p-pain"><div class="lp">Lands on <a href="https://khanh97hg.github.io/landers/christmas-parol/pain.html" target="_blank" rel="noopener">pain.html</a></div>
-<div class="grp"><h4>Image ads</h4><div class="adimgs">
-<figure class="adimg"><img src="ads/img/pain-native-16x9.webp" alt="" loading="lazy"><figcaption><b>Native 16:9</b><br>Adsterra Native Banner, no text</figcaption>
-<div class="dl"><a href="ads/img/pain-native-16x9.webp" download>Download</a></div></figure>
+<div class="grp"><h4>Image ads (Adsterra Native Banner: 320×240 JPG, title ≤64)</h4><div class="adimgs">
+<figure class="adimg"><img src="ads/native/pain-b-320x240.jpg" alt="" loading="lazy"><figcaption><b>Native 320×240</b><br>Title: Fake Christmas Prize Links? How a Fair Giveaway Works (53)</figcaption>
+<div class="dl"><a href="ads/native/pain-b-320x240.jpg" download>Download</a></div></figure>
+<figure class="adimg"><img src="ads/native/pain-a-320x240.jpg" alt="" loading="lazy"><figcaption><b>Native 320×240</b><br>Title: The Parol Is Up, the Gift List Is Long. Try This Free Game (58)</figcaption>
+<div class="dl"><a href="ads/native/pain-a-320x240.jpg" download>Download</a></div></figure>
 </div></div>
 
 <div class="grp"><h4>Adsterra ad target URL (with macros)</h4><ul><li><span class="t">https://khanh97hg.github.io/landers/christmas-parol/pain.html?subid=##SUB_ID_SHORT(action)##&amp;placement_id=##PLACEMENT_ID##&amp;campaign_id=##CAMPAIGN_ID##&amp;banner_id=##BANNER_ID##&amp;country_code=##COUNTRY_CODE##&amp;device_brand=##DEVICE_BRAND##&amp;browser_name=##BROWSER_NAME##&amp;user_os=##USER_OS##&amp;remote_country=##REMOTE_COUNTRY##&amp;remote_language=##REMOTE_LANGUAGE##&amp;useragent=##USERAGENT##</span><button class="cp" type="button">Copy</button></li></ul></div>
@@ -113,15 +116,19 @@ h2{font-size:13px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;
 
 <div class="grp"><h4>PAS body (Pain → Agitate → Solution)</h4><ul><li><span class="t">Pain: December piles up: gifts for the family and your inaanak, Noche Buena shopping, the trip home, and a phone full of Christmas &quot;prize&quot; messages you can&#x27;t trust. Agitate: Most of those links ask for a processing fee or your OTP, so you&#x27;ve stopped trusting any giveaway at all. Solution: A free Christmas parol game: light the parol, enter a fair giveaway under the sponsor&#x27;s rules, and get back to your evening. Free to play, no guaranteed prize.</span><button class="cp" type="button">Copy</button></li></ul></div>
 
-<div class="grp"><h4>Native: headlines (≤60 characters)</h4><ul><li><span class="t">The Parol Is Up, the Gift List Is Long. Try This Free Game</span><button class="cp" type="button">Copy</button></li><li><span class="t">A Real Giveaway Never Asks You to Pay. Here&#x27;s One to Try</span><button class="cp" type="button">Copy</button></li><li><span class="t">Busy Pasko? Light a Parol in This Free One-Minute Game</span><button class="cp" type="button">Copy</button></li><li><span class="t">Fake Christmas Prize Links? How a Fair Giveaway Works</span><button class="cp" type="button">Copy</button></li><li><span class="t">Start Christmas on a Lighter Note: Light the Parol</span><button class="cp" type="button">Copy</button></li></ul></div>
+<div class="grp"><h4>Native: headlines (≤64 characters)</h4><ul><li><span class="t">The Parol Is Up, the Gift List Is Long. Try This Free Game</span><button class="cp" type="button">Copy</button></li><li><span class="t">A Real Giveaway Never Asks You to Pay. Here&#x27;s One to Try</span><button class="cp" type="button">Copy</button></li><li><span class="t">Busy Pasko? Light a Parol in This Free One-Minute Game</span><button class="cp" type="button">Copy</button></li><li><span class="t">Fake Christmas Prize Links? How a Fair Giveaway Works</span><button class="cp" type="button">Copy</button></li><li><span class="t">Start Christmas on a Lighter Note: Light the Parol</span><button class="cp" type="button">Copy</button></li></ul></div>
 
 <div class="grp"><h4>Native: description and brand name</h4><ul><li><span class="t">Free to play. A chance to win, no guaranteed prize.</span><button class="cp" type="button">Copy</button></li><li><span class="t">Noche Buena Notes</span><button class="cp" type="button">Copy</button></li></ul></div>
 
 </div>
 <div class="pane" id="p-curiosity"><div class="lp">Lands on <a href="https://khanh97hg.github.io/landers/christmas-parol/curiosity.html" target="_blank" rel="noopener">curiosity.html</a></div>
-<div class="grp"><h4>Image ads</h4><div class="adimgs">
-<figure class="adimg"><img src="ads/img/curiosity-native-16x9.webp" alt="" loading="lazy"><figcaption><b>Native 16:9</b><br>Adsterra Native Banner, no text</figcaption>
-<div class="dl"><a href="ads/img/curiosity-native-16x9.webp" download>Download</a></div></figure>
+<div class="grp"><h4>Image ads (Adsterra Native Banner: 320×240 JPG, title ≤64)</h4><div class="adimgs">
+<figure class="adimg"><img src="ads/native/curiosity-a-320x240.jpg" alt="" loading="lazy"><figcaption><b>Native 320×240</b><br>Title: Light the Parol and See Something Special (41)</figcaption>
+<div class="dl"><a href="ads/native/curiosity-a-320x240.jpg" download>Download</a></div></figure>
+<figure class="adimg"><img src="ads/native/curiosity-b-320x240.jpg" alt="" loading="lazy"><figcaption><b>Native 320×240</b><br>Title: Which Parol Would You Light First? Pick One (43)</figcaption>
+<div class="dl"><a href="ads/native/curiosity-b-320x240.jpg" download>Download</a></div></figure>
+<figure class="adimg"><img src="ads/native/control-illustration-320x240.jpg" alt="" loading="lazy"><figcaption><b>Control (no-text illustration)</b><br>Title: Which Parol Would You Light First? Pick One (43)</figcaption>
+<div class="dl"><a href="ads/native/control-illustration-320x240.jpg" download>Download</a></div></figure>
 </div></div>
 
 <div class="grp"><h4>Adsterra ad target URL (with macros)</h4><ul><li><span class="t">https://khanh97hg.github.io/landers/christmas-parol/curiosity.html?subid=##SUB_ID_SHORT(action)##&amp;placement_id=##PLACEMENT_ID##&amp;campaign_id=##CAMPAIGN_ID##&amp;banner_id=##BANNER_ID##&amp;country_code=##COUNTRY_CODE##&amp;device_brand=##DEVICE_BRAND##&amp;browser_name=##BROWSER_NAME##&amp;user_os=##USER_OS##&amp;remote_country=##REMOTE_COUNTRY##&amp;remote_language=##REMOTE_LANGUAGE##&amp;useragent=##USERAGENT##</span><button class="cp" type="button">Copy</button></li></ul></div>
@@ -130,15 +137,17 @@ h2{font-size:13px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;
 
 <div class="grp"><h4>PAS body (Pain → Agitate → Solution)</h4><ul><li><span class="t">Pain: December scrolling is all ads and noise. Agitate: Most &quot;games&quot; turn into endless forms or pop-ups. Solution: One simple question: which parol would you light first? Pick a star, answer 3 quick taps, then light it, see what&#x27;s behind it, and enter a free Christmas giveaway for a chance to win.</span><button class="cp" type="button">Copy</button></li></ul></div>
 
-<div class="grp"><h4>Native: headlines (≤60 characters)</h4><ul><li><span class="t">Light the Parol and See Something Special</span><button class="cp" type="button">Copy</button></li><li><span class="t">Which Parol Would You Light First? Pick One</span><button class="cp" type="button">Copy</button></li><li><span class="t">Four Parols, One Tap. What&#x27;s Behind Yours?</span><button class="cp" type="button">Copy</button></li><li><span class="t">Red, Gold, Blue or Green? Light Your Christmas Star</span><button class="cp" type="button">Copy</button></li><li><span class="t">Trust Your Gut: Choose a Parol and Light It</span><button class="cp" type="button">Copy</button></li></ul></div>
+<div class="grp"><h4>Native: headlines (≤64 characters)</h4><ul><li><span class="t">Light the Parol and See Something Special</span><button class="cp" type="button">Copy</button></li><li><span class="t">Which Parol Would You Light First? Pick One</span><button class="cp" type="button">Copy</button></li><li><span class="t">Four Parols, One Tap. What&#x27;s Behind Yours?</span><button class="cp" type="button">Copy</button></li><li><span class="t">Red, Gold, Blue or Green? Light Your Christmas Star</span><button class="cp" type="button">Copy</button></li><li><span class="t">Trust Your Gut: Choose a Parol and Light It</span><button class="cp" type="button">Copy</button></li></ul></div>
 
 <div class="grp"><h4>Native: description and brand name</h4><ul><li><span class="t">A free one-minute Christmas game. No guaranteed prize.</span><button class="cp" type="button">Copy</button></li><li><span class="t">Noche Buena Notes</span><button class="cp" type="button">Copy</button></li></ul></div>
 
 </div>
 <div class="pane" id="p-benefit"><div class="lp">Lands on <a href="https://khanh97hg.github.io/landers/christmas-parol/benefit.html" target="_blank" rel="noopener">benefit.html</a></div>
-<div class="grp"><h4>Image ads</h4><div class="adimgs">
-<figure class="adimg"><img src="ads/img/benefit-native-16x9.webp" alt="" loading="lazy"><figcaption><b>Native 16:9</b><br>Adsterra Native Banner, no text</figcaption>
-<div class="dl"><a href="ads/img/benefit-native-16x9.webp" download>Download</a></div></figure>
+<div class="grp"><h4>Image ads (Adsterra Native Banner: 320×240 JPG, title ≤64)</h4><div class="adimgs">
+<figure class="adimg"><img src="ads/native/benefit-a-320x240.jpg" alt="" loading="lazy"><figcaption><b>Native 320×240</b><br>Title: Free Christmas Game: Light the Parol in One Minute (50)</figcaption>
+<div class="dl"><a href="ads/native/benefit-a-320x240.jpg" download>Download</a></div></figure>
+<figure class="adimg"><img src="ads/native/benefit-b-320x240.jpg" alt="" loading="lazy"><figcaption><b>Native 320×240</b><br>Title: Merry Christmas! A Free Parol Game for Your Phone (49)</figcaption>
+<div class="dl"><a href="ads/native/benefit-b-320x240.jpg" download>Download</a></div></figure>
 </div></div>
 
 <div class="grp"><h4>Adsterra ad target URL (with macros)</h4><ul><li><span class="t">https://khanh97hg.github.io/landers/christmas-parol/benefit.html?subid=##SUB_ID_SHORT(action)##&amp;placement_id=##PLACEMENT_ID##&amp;campaign_id=##CAMPAIGN_ID##&amp;banner_id=##BANNER_ID##&amp;country_code=##COUNTRY_CODE##&amp;device_brand=##DEVICE_BRAND##&amp;browser_name=##BROWSER_NAME##&amp;user_os=##USER_OS##&amp;remote_country=##REMOTE_COUNTRY##&amp;remote_language=##REMOTE_LANGUAGE##&amp;useragent=##USERAGENT##</span><button class="cp" type="button">Copy</button></li></ul></div>
@@ -147,7 +156,7 @@ h2{font-size:13px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;
 
 <div class="grp"><h4>PAS body (Pain → Agitate → Solution)</h4><ul><li><span class="t">Pain: The weeks before Noche Buena are full of plans and spending. Agitate: You&#x27;d like something fun that doesn&#x27;t ask for money or an hour of your time. Solution: Light a parol in about a minute and enter a free Christmas giveaway for a chance to win. Nothing to pay; the sponsor&#x27;s official rules apply.</span><button class="cp" type="button">Copy</button></li></ul></div>
 
-<div class="grp"><h4>Native: headlines (≤60 characters)</h4><ul><li><span class="t">Free Christmas Game: Light the Parol in One Minute</span><button class="cp" type="button">Copy</button></li><li><span class="t">Light a Parol. Free Chance to Win This Christmas</span><button class="cp" type="button">Copy</button></li><li><span class="t">Merry Christmas! A Free Parol Game for Your Phone</span><button class="cp" type="button">Copy</button></li><li><span class="t">Tap, Light, Enter: A Free Christmas Giveaway</span><button class="cp" type="button">Copy</button></li><li><span class="t">Make This Pasko Brighter With a Free Parol Game</span><button class="cp" type="button">Copy</button></li></ul></div>
+<div class="grp"><h4>Native: headlines (≤64 characters)</h4><ul><li><span class="t">Free Christmas Game: Light the Parol in One Minute</span><button class="cp" type="button">Copy</button></li><li><span class="t">Light a Parol. Free Chance to Win This Christmas</span><button class="cp" type="button">Copy</button></li><li><span class="t">Merry Christmas! A Free Parol Game for Your Phone</span><button class="cp" type="button">Copy</button></li><li><span class="t">Tap, Light, Enter: A Free Christmas Giveaway</span><button class="cp" type="button">Copy</button></li><li><span class="t">Make This Pasko Brighter With a Free Parol Game</span><button class="cp" type="button">Copy</button></li></ul></div>
 
 <div class="grp"><h4>Native: description and brand name</h4><ul><li><span class="t">Free to play. Takes about a minute.</span><button class="cp" type="button">Copy</button></li><li><span class="t">Noche Buena Notes</span><button class="cp" type="button">Copy</button></li></ul></div>
 

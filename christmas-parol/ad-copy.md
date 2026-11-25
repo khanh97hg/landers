@@ -1,5 +1,7 @@
 # Ad copy: Playable | Merry Christmas, Light the Parol (Adsterra Native Banner, PH)
 
+Recommended first test (4 creatives): curiosity-a, benefit-a, pain-b + control-illustration. Rankings are predictions until data comes in.
+
 Traffic: Adsterra Native Banner (native only, so no Facebook or Google copy). Rules for every line: no "you won", no "congratulations, you've been selected", no prize or peso amount named, no guaranteed win, no countdowns, no "ayuda", no government, telecom, bank or store names. "Chance to win" and "free" only.
 
 **Ad target URL (each angle):** the lander URL plus the Adsterra macros, so BeMob gets the sub ID:
@@ -8,7 +10,9 @@ Traffic: Adsterra Native Banner (native only, so no Facebook or Google copy). Ru
 ---
 
 ## Pain Point → https://khanh97hg.github.io/landers/christmas-parol/pain.html
-Image ad: `ads/img/pain-native-16x9.webp`
+Image ads (Adsterra Native Banner, 320×240 JPG ≤350 KB, title ≤64):
+- `ads/native/pain-b-320x240.jpg` + title: "Fake Christmas Prize Links? How a Fair Giveaway Works" (53)
+- `ads/native/pain-a-320x240.jpg` + title: "The Parol Is Up, the Gift List Is Long. Try This Free Game" (58)
 
 Ad target URL: `https://khanh97hg.github.io/landers/christmas-parol/pain.html?subid=##SUB_ID_SHORT(action)##&placement_id=##PLACEMENT_ID##&campaign_id=##CAMPAIGN_ID##&banner_id=##BANNER_ID##&country_code=##COUNTRY_CODE##&device_brand=##DEVICE_BRAND##&browser_name=##BROWSER_NAME##&user_os=##USER_OS##&remote_country=##REMOTE_COUNTRY##&remote_language=##REMOTE_LANGUAGE##&useragent=##USERAGENT##`
 
@@ -20,7 +24,7 @@ Ad target URL: `https://khanh97hg.github.io/landers/christmas-parol/pain.html?su
 ### PAS body
 Pain: December piles up: gifts for the family and your inaanak, Noche Buena shopping, the trip home, and a phone full of Christmas "prize" messages you can't trust. Agitate: Most of those links ask for a processing fee or your OTP, so you've stopped trusting any giveaway at all. Solution: A free Christmas parol game: light the parol, enter a fair giveaway under the sponsor's rules, and get back to your evening. Free to play, no guaranteed prize.
 
-### Native headlines (≤60 characters)
+### Native headlines (≤64 characters, Adsterra limit)
 1. The Parol Is Up, the Gift List Is Long. Try This Free Game (58)
 2. A Real Giveaway Never Asks You to Pay. Here's One to Try (56)
 3. Busy Pasko? Light a Parol in This Free One-Minute Game (54)
@@ -34,7 +38,10 @@ Pain: December piles up: gifts for the family and your inaanak, Noche Buena shop
 ---
 
 ## Curiosity → https://khanh97hg.github.io/landers/christmas-parol/curiosity.html
-Image ad: `ads/img/curiosity-native-16x9.webp`
+Image ads (Adsterra Native Banner, 320×240 JPG ≤350 KB, title ≤64):
+- `ads/native/curiosity-a-320x240.jpg` + title: "Light the Parol and See Something Special" (41)
+- `ads/native/curiosity-b-320x240.jpg` + title: "Which Parol Would You Light First? Pick One" (43)
+- `ads/native/control-illustration-320x240.jpg` + title: "Which Parol Would You Light First? Pick One" (43)
 
 Ad target URL: `https://khanh97hg.github.io/landers/christmas-parol/curiosity.html?subid=##SUB_ID_SHORT(action)##&placement_id=##PLACEMENT_ID##&campaign_id=##CAMPAIGN_ID##&banner_id=##BANNER_ID##&country_code=##COUNTRY_CODE##&device_brand=##DEVICE_BRAND##&browser_name=##BROWSER_NAME##&user_os=##USER_OS##&remote_country=##REMOTE_COUNTRY##&remote_language=##REMOTE_LANGUAGE##&useragent=##USERAGENT##`
 
@@ -46,7 +53,7 @@ Ad target URL: `https://khanh97hg.github.io/landers/christmas-parol/curiosity.ht
 ### PAS body
 Pain: December scrolling is all ads and noise. Agitate: Most "games" turn into endless forms or pop-ups. Solution: One simple question: which parol would you light first? Pick a star, answer 3 quick taps, then light it, see what's behind it, and enter a free Christmas giveaway for a chance to win.
 
-### Native headlines (≤60 characters)
+### Native headlines (≤64 characters, Adsterra limit)
 1. Light the Parol and See Something Special (41)
 2. Which Parol Would You Light First? Pick One (43)
 3. Four Parols, One Tap. What's Behind Yours? (42)
@@ -60,7 +67,9 @@ Pain: December scrolling is all ads and noise. Agitate: Most "games" turn into e
 ---
 
 ## Direct Benefit → https://khanh97hg.github.io/landers/christmas-parol/benefit.html
-Image ad: `ads/img/benefit-native-16x9.webp`
+Image ads (Adsterra Native Banner, 320×240 JPG ≤350 KB, title ≤64):
+- `ads/native/benefit-a-320x240.jpg` + title: "Free Christmas Game: Light the Parol in One Minute" (50)
+- `ads/native/benefit-b-320x240.jpg` + title: "Merry Christmas! A Free Parol Game for Your Phone" (49)
 
 Ad target URL: `https://khanh97hg.github.io/landers/christmas-parol/benefit.html?subid=##SUB_ID_SHORT(action)##&placement_id=##PLACEMENT_ID##&campaign_id=##CAMPAIGN_ID##&banner_id=##BANNER_ID##&country_code=##COUNTRY_CODE##&device_brand=##DEVICE_BRAND##&browser_name=##BROWSER_NAME##&user_os=##USER_OS##&remote_country=##REMOTE_COUNTRY##&remote_language=##REMOTE_LANGUAGE##&useragent=##USERAGENT##`
 
@@ -72,7 +81,7 @@ Ad target URL: `https://khanh97hg.github.io/landers/christmas-parol/benefit.html
 ### PAS body
 Pain: The weeks before Noche Buena are full of plans and spending. Agitate: You'd like something fun that doesn't ask for money or an hour of your time. Solution: Light a parol in about a minute and enter a free Christmas giveaway for a chance to win. Nothing to pay; the sponsor's official rules apply.
 
-### Native headlines (≤60 characters)
+### Native headlines (≤64 characters, Adsterra limit)
 1. Free Christmas Game: Light the Parol in One Minute (50)
 2. Light a Parol. Free Chance to Win This Christmas (48)
 3. Merry Christmas! A Free Parol Game for Your Phone (49)

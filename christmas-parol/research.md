@@ -101,3 +101,10 @@ Quiz questions (no ZIP; not location-based):
 - DTI warns consumers on fraud sales promos: https://dti.gov.ph/archives/news-archives/dti-warns-consumers-on-fraud-sales-promos-and-text-scams
 - Scam Watch Pilipinas, ber-months warning (DZRH): https://www.dzrh.com.ph/post/scam-watch-pilipinas-warns-filipinos-against-online-scams-as-ber-months-begin
 - Adsterra, sweepstakes traffic: https://adsterra.com/sweepstakes
+
+## Image references
+Parol images (landers and native creatives) were generated with Higgsfield using real parol photos from
+Wikimedia Commons only as style references for the lantern design; no reference photo is used directly:
+- https://commons.wikimedia.org/wiki/File:Simple_capiz_parol.jpg
+- https://commons.wikimedia.org/wiki/File:Pampanga_Parol.jpg
+- https://commons.wikimedia.org/wiki/File:GLFjf1480_03.JPG (Giant Lantern Festival 2012, Ramon FVelasquez, CC BY-SA 3.0)
